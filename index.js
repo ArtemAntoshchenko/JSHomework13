@@ -23,14 +23,46 @@ for(let i of set2){
 console.log(set3)
 
 
-let obj={
+let obj1={
     "1":"something",
     2:'something2'
 }
-function objToMap(obj){
-    let map=new Map (Object.entries(obj))
+function objToMap(obj1){
+    let map=new Map (Object.entries(obj1))
     return map
 }
-console.log(objToMap(obj))
+console.log(objToMap(obj1))
+
+//                                      Не смог
+let map1=new Map(Object.entries(obj1))
+let newKey=map1.keys()
+let newValue=map1.values()
+let set4=new Set(newValue)
+map1.set(set4,newKey)
+console.log(map1)
+// 
+
+let weakMap=new WeakMap()
+function doSomeThing(obj){
+    if (!weakMap.has(obj)){
+        let result=5+obj.number
+        weakMap.set(obj,result)
+    }
+    return weakMap.get(obj)
+}
+let obj={number:5}
+let res=doSomeThing(obj)
+let res1=doSomeThing(obj)
+obj=null
+console.log(weakMap)
 
 
+let weakSet=new WeakSet()
+let object={number:5}
+let object1={number:4}
+weakSet.add(object)
+function check(obj){
+    return weakSet.has(obj)
+}
+console.log(check(object))
+console.log(check(object1))
