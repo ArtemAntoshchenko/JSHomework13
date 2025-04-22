@@ -33,14 +33,14 @@ function objToMap(obj1){
 }
 console.log(objToMap(obj1))
 
-//                                      Не смог
+
 let map1=new Map(Object.entries(obj1))
-let newKey=map1.keys()
-let newValue=map1.values()
-let set4=new Set(newValue)
-map1.set(set4,newKey)
-console.log(map1)
-// 
+let map2=new Map()
+for(let [key,value] of map1){
+    map2.set[value,key]
+}
+console.log(map2)
+
 
 let weakMap=new WeakMap()
 function doSomeThing(obj){
